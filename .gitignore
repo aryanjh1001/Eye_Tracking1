@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+face_landmarker.task
+data/
+*.pkl
+audit*.py
+check_window.py
+eye-track/
