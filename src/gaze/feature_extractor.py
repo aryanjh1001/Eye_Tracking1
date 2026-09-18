@@ -59,8 +59,8 @@ class FeatureExtractor:
             r_iris_x, r_iris_y = r_iris
 
             # 2. Stable Eye Corners
-            l_inner, l_outer = face_landmarks[133], face_landmarks[33]
-            r_inner, r_outer = face_landmarks[362], face_landmarks[263]
+            l_inner, l_outer = face_landmarks[362], face_landmarks[263]
+            r_inner, r_outer = face_landmarks[133], face_landmarks[33]
             
             l_min_x, l_max_x = min(l_inner.x, l_outer.x), max(l_inner.x, l_outer.x)
             r_min_x, r_max_x = min(r_inner.x, r_outer.x), max(r_inner.x, r_outer.x)
@@ -83,8 +83,8 @@ class FeatureExtractor:
                 return FeatureResult(False, None, "Near-zero inter-eye distance")
 
             # 4. Eye Openness (using mid upper/lower eyelids)
-            l_upper, l_lower = face_landmarks[159], face_landmarks[145]
-            r_upper, r_lower = face_landmarks[386], face_landmarks[374]
+            l_upper, l_lower = face_landmarks[386], face_landmarks[374]
+            r_upper, r_lower = face_landmarks[159], face_landmarks[145]
             
             l_openness = (l_lower.y - l_upper.y) / l_eye_w
             r_openness = (r_lower.y - r_upper.y) / r_eye_w
