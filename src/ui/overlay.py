@@ -34,7 +34,7 @@ class OverlayWidget(QWidget):
         # UI refresh timer
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update)
-        self.timer.start(16) # ~60fps redraw
+        self.timer.start(8) # ~120fps redraw
 
     def update_gaze(self, is_valid, x, y):
         self.is_valid = is_valid

@@ -5,6 +5,7 @@ class Camera:
     def __init__(self, camera_index=0):
         self.camera_index = camera_index
         self.cap = cv2.VideoCapture(self.camera_index)
+        self.cap.set(cv2.CAP_PROP_FPS, 120)
         if not self.cap.isOpened():
             raise RuntimeError(f"Could not open webcam with index {self.camera_index}")
 
