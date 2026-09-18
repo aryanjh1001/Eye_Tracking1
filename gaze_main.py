@@ -123,6 +123,22 @@ class AppController:
         self.overlay.showFullScreen()
         self.calib_timer.start(50)
         
+    def load_profile(self):
+        profile_path = "gaze_mapper.pkl"
+        if os.path.exists(profile_path):
+            try:
+                self.mapper = GazeMapper.load(profile_path)
+                self.thread.mapper = self.mapper
+                self.main_window.update_status("Profile Loaded Successfully!")
+                print(f"Loaded calibration profile from {profile_path}")
+                self.start_tracking()
+            except Exception as e:
+                self.main_window.update_status("Error loading profile.")
+                print(f"Failed to load profile: {e}")
+        else:
+            self.main_window.update_status("No profile found (gaze_mapper.pkl)")
+            print("No saved profile found. Please calibrate first.")
+        
     def start_tracking(self):
         self.main_window.update_status("Tracking")
         self.thread.set_calibrating(False)

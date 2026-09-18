@@ -52,6 +52,11 @@ class MainWindow(QMainWindow):
         self.btn_calibrate.setFont(QFont("Arial", 11, QFont.Weight.Bold))
         self.btn_calibrate.clicked.connect(self.controller.start_calibration)
         
+        self.btn_load_profile = QPushButton("Load Profile")
+        self.btn_load_profile.setMinimumHeight(40)
+        self.btn_load_profile.setFont(QFont("Arial", 11, QFont.Weight.Bold))
+        self.btn_load_profile.clicked.connect(self.controller.load_profile)
+        
         self.btn_track = QPushButton("Start Tracking")
         self.btn_track.setMinimumHeight(40)
         self.btn_track.setFont(QFont("Arial", 11, QFont.Weight.Bold))
@@ -62,6 +67,7 @@ class MainWindow(QMainWindow):
         self.btn_quit.clicked.connect(self.controller.quit)
         
         btn_layout.addWidget(self.btn_calibrate)
+        btn_layout.addWidget(self.btn_load_profile)
         btn_layout.addWidget(self.btn_track)
         btn_layout.addWidget(self.btn_quit)
         
